@@ -1,0 +1,8 @@
+<h1>Todo List</h1>
+<mat-card *ngFor="let item of todoItems" class="todo-card">
+  <mat-card-content>
+    <mat-checkbox color="primary"></mat-checkbox>
+    {{item.title}}
+  </mat-card-content>
+</mat-card>
+<button mat-raised-button color="primary">Primary</button>
