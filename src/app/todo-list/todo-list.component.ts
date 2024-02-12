@@ -1,22 +1,22 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, EventEmitter, Input, Output, } from '@angular/core';
 import { TodoListService } from '../services/todo-list.service';
-import { TodoItemDTO } from '../model/todo-item-dto';
+import { TodoItemDTO } from '../model/todo-item';
 
 @Component({
   selector: 'app-todo-list',
   templateUrl: './todo-list.component.html',
   styleUrl: './todo-list.component.scss'
 })
-export class TodoListComponent implements OnInit{
-  todoItems: TodoItemDTO[]=[];
-  constructor(private todoListService: TodoListService){
-
+export class TodoListComponent{
+  @Input() todoItems : TodoItemDTO[] = [];
+  @Output() editTodoItemEvent = new EventEmitter<TodoItemDTO>
+  @Output() addTodoItemEvent = new EventEmitter<null>();
+  
+  onEditTodoItem(todoItem: TodoItemDTO){
+    this.editTodoItemEvent.emit(todoItem);
   }
-  ngOnInit(): void {
-    this.todoListService.getTodoList().subscribe(
-      (todoItems : TodoItemDTO[]) => {
-        this.todoItems = todoItems;
-      }
-    );
-  } //组件初始化工作
+
+  onAddTodoItem(){
+    this.addTodoItemEvent.emit();
+  }
 }

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { MockTodoItems } from './mock-data';
 import { TodoItem } from '../model/todo-item';
 import { HttpClient } from '@angular/common/http';
-import { TodoItemDTO } from '../model/todo-item-dto';
+import { TodoItemDTO } from '../model/category';
 import { Observable } from 'rxjs';
 
 @Injectable({

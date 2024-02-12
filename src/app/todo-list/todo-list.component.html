@@ -1,8 +1,12 @@
-<h1>Todo List</h1>
-<mat-card *ngFor="let item of todoItems" class="todo-card">
-  <mat-card-content>
-    <mat-checkbox color="primary"></mat-checkbox>
+<div class="button-container">
+  <button mat-raised-button color="primary" style="background-color: #569DAA;" (click)="onAddTodoItem()">
+    <mat-icon>add</mat-icon>
+    Add Todo
+  </button>
+</div>
+
+<mat-card *ngFor="let item of todoItems" class="todo-card"">
+  <mat-card-content class="card-content" (click)="onEditTodoItem(item)">
     {{item.title}}
   </mat-card-content>
 </mat-card>
-<button mat-raised-button color="primary">Primary</button>
